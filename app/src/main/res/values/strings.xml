@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Hell</string>
+    <string name="welcome_to_the_world_of_heaven">Heaven World</string>
+<string-array name="region">
+    <item>NA</item>
+    <item>India</item>
+    <item>EU</item>
+</string-array>>
+</resources>

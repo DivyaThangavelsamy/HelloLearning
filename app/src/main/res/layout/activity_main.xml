@@ -20,16 +20,15 @@
         android:layout_height="35dp"
 
 
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:background="#4CAF50"
+        android:layout_marginStart="100dp"
 
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="28dp"
+
+        android:background="#4CAF50"
         android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toBottomOf="@+id/Region" />
+        app:layout_constraintTop_toBottomOf="@+id/Accept" />
 
     <EditText
         android:id="@+id/mailidedit"
@@ -76,6 +75,7 @@
         android:layout_marginTop="21dp"
 
         android:orientation="horizontal"
+
         app:layout_constraintStart_toStartOf="@id/guidelineright"
         app:layout_constraintTop_toBottomOf="@+id/confirmPasswordEdit"
         tools:layout_editor_absoluteX="203dp">
@@ -111,17 +111,13 @@
         android:layout_height="wrap_content"
 
 
-
-        app:layout_constraintVertical_bias="0.8"
-        android:layout_marginTop="60dp"
-
         android:text="CREATE AN ACCOUNT"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="18sp"
         app:fontFamily="@font/orienta"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelinetop"
         app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="@id/guidelinetop" />
+        tools:layout_editor_absoluteY="90dp" />
 
     <TextView
         android:id="@+id/username"
@@ -130,6 +126,7 @@
 
 
         android:text="UserName"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
         app:layout_constraintBaseline_toBaselineOf="@+id/usernameedit"
         app:layout_constraintStart_toStartOf="@id/guidelineleft" />
 
@@ -139,26 +136,22 @@
         android:layout_height="40dp"
 
 
-        android:layout_marginTop="54dp"
-
         android:inputType="textPersonName"
 
         app:layout_constraintStart_toStartOf="@id/guidelineright"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        tools:layout_editor_absoluteY="108dp" />
 
     <TextView
         android:id="@+id/mailid"
         android:layout_width="115dp"
         android:layout_height="40dp"
 
-
-        android:layout_marginTop="21dp"
-
-
+        android:ems="10"
         android:text="Office Mail Id"
-        app:layout_constraintBottom_toTopOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/mailidedit"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@id/guidelineleft" />
 
     <TextView
         android:id="@+id/confirmpassword"
@@ -166,11 +159,10 @@
         android:layout_height="40dp"
 
         android:layout_marginTop="21dp"
-
         android:text="Confirm Password"
-        app:layout_constraintBottom_toTopOf="@+id/gender"
+        app:layout_constraintBaseline_toBaselineOf="@+id/confirmPasswordEdit"
         app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <TextView
         android:id="@+id/password"
@@ -178,25 +170,22 @@
         android:layout_height="40dp"
 
 
-        android:layout_marginTop="21dp"
-
         android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/confirmpassword"
-        app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toBottomOf="@+id/mailid" />
+        app:layout_constraintTop_toBottomOf="@id/mailid"
+        app:layout_constraintBaseline_toBaselineOf="@+id/passwordedit"
+        app:layout_constraintStart_toStartOf="@id/guidelineleft" />
 
     <TextView
         android:id="@+id/gender"
         android:layout_width="115dp"
         android:layout_height="40dp"
 
+
         android:layout_marginTop="21dp"
 
-
         android:text="Gender"
-        app:layout_constraintBottom_toTopOf="@+id/Region"
         app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toBottomOf="@+id/confirmpassword" />
+        app:layout_constraintTop_toBottomOf="@id/confirmpassword" />
 
     <TextView
         android:id="@+id/Region"
@@ -204,11 +193,10 @@
         android:layout_height="40dp"
 
 
-        android:layout_marginTop="21dp"
         android:text="Region"
-        app:layout_constraintBottom_toTopOf="@+id/signup"
-        app:layout_constraintStart_toStartOf="@id/guidelineleft"
-        app:layout_constraintTop_toBottomOf="@+id/gender" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/spinner3"
+        app:layout_constraintTop_toBottomOf="@id/gender"
+        app:layout_constraintStart_toStartOf="@id/guidelineleft" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineleft"

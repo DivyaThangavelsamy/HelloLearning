@@ -147,7 +147,7 @@
         android:layout_width="115dp"
         android:layout_height="40dp"
 
-
+        android:ems="10"
         android:text="Office Mail Id"
         app:layout_constraintBaseline_toBaselineOf="@+id/mailidedit"
         app:layout_constraintTop_toBottomOf="@+id/username"

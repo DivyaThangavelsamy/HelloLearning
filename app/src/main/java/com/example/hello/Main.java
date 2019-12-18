@@ -14,7 +14,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import com.example.R;
 import android.widget.Toast;
+
+import com.example.R;
 
 public class MainActivity extends AppCompatActivity {
 

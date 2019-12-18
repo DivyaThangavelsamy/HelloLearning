@@ -9,6 +9,9 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.databinding.first.R;
+
+
 public class SecondActivity extends AppCompatActivity {
      private Button goback;
 

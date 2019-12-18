@@ -1,7 +1,23 @@
 <resources>
     <string name="app_name">Hell</string>
     <string name="welcome_to_the_world_of_heaven">Heaven World</string>
+    <string name="createaccount">Create your Account</string>
+    <string name="username">Username</string>
+    <string name="Female">Female</string>
+    <string name="Male">Male</string>
+    <string name="mailid">Office Mail id</string>
+    <string name="password">Password</string>
+    <string name="FordEmployee">Ford Employee</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="country">Country</string>
+    <string name="MobileNo">Mobile No</string>
+    <string name="accept">I accept terms and conditions</string>
+    <string name="signup">Sign Up</string>
+
 <string-array name="region">
+    <item>Select</item>
     <item>NA</item>
     <item>India</item>
     <item>EU</item>

@@ -14,12 +14,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import com.example.R;
+
 import android.widget.Toast;
 
-import com.example.R;
 
-public class MainActivity extends AppCompatActivity {
+
+import com.example.databinding.first.R;
+
+public class Main extends AppCompatActivity {
 
     private Button buttonLaunch;
     public EditText usernameedit,passwordedit,mailidedit;
@@ -27,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
     public Spinner regionedit;
     public String string1,string2,string3,string4,string5;
 
-public class RegistrationDetails{
-
-
-}
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +81,7 @@ public class RegistrationDetails{
 
 
 
-       /* public void toastMe(View view)
+        public void toastMe(View view)
         {
             Toast myToast = Toast.makeText(this,"Hi Toast!",
                     Toast.LENGTH_SHORT);
@@ -96,7 +94,7 @@ public class RegistrationDetails{
                 Toast.LENGTH_SHORT);
         showCountTextView.show();
 
-    }*/
+    }
 
 
     }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <data>
+        <variable
+            name="loginview"
+            type="com.example.databinding.first.LoginPojo" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/loginusername"
+        android:layout_width="106dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:text="UserName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/loginusernamedit"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/loginusernamedit"
+        android:layout_width="196dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:ems="10"
+        android:text="@={loginview.loginusername}"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginPassword"
+        android:layout_width="106dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:text="Password"
+        app:layout_constraintBaseline_toBaselineOf="@+id/loginpasswordedit"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/loginpasswordedit"
+        android:text="@={loginview.loginpassword}"
+        android:layout_width="198dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginusernamedit" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginLeft="163dp"
+        android:layout_marginTop="52dp"
+        android:text="Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

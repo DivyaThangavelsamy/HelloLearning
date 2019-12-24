@@ -93,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     //static Toast toast;
 
-    @BindingAdapter({"toastMessage"})
+   @BindingAdapter({"toastMessage"})
     public static void toastMe(View view,String message)
 
     {

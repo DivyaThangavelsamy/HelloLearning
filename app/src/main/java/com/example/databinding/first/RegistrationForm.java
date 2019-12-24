@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.regex.Pattern;
 
@@ -87,7 +88,7 @@ public TextWatcher usernameValidation=new TextWatcher() {
         }
     }
 };
-public TextWatcher emailidValidation=new TextWatcher() {
+/*public TextWatcher emailidValidation=new TextWatcher() {
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -96,18 +97,20 @@ public TextWatcher emailidValidation=new TextWatcher() {
     @Override
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-    }
+    }*/
 
-    @Override
-    public void afterTextChanged(Editable editable) {
-        System.out.println(mailid.get());
+
+    public void emailidValidate(View view,String message) {
+
         if(userNameIs==true) {
             if (TextUtils.isEmpty(mailid.get())) {
-                System.out.println(mailid.get());
-                toastMessage.set("EmailId is required");
+
+                Toast.makeText(view.getContext(), "EmailId is required",
+                        Toast.LENGTH_SHORT).show();
             }
-            if (!EMAIL_PATTERN.matcher(mailid.get()).matches()) {
-                toastMessage.set("Not a Valid Email");
+            else if (!EMAIL_PATTERN.matcher(mailid.get()).matches()) {
+                Toast.makeText(view.getContext(), "EmailId is Invalid",
+                        Toast.LENGTH_SHORT).show();
             } else {
                 emailIdIs = true;
 
@@ -120,7 +123,7 @@ public TextWatcher emailidValidation=new TextWatcher() {
 
         }
 
-    };
+
 
 
 public TextWatcher passwordValidation=new TextWatcher() {

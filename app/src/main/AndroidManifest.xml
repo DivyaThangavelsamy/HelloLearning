@@ -12,15 +12,23 @@
 
         <activity android:name=".ProfileInfo"></activity>
         <activity android:name=".RegistrationForm"></activity>
-        <activity android:name="RegistrationFormViewModel" ></activity>
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DashboardActivity">
+
+        </activity>
+        <activity android:name=".RecyclerViewActivity">
+
+        </activity>
 
 
         <activity android:name=".RegistrationActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
 
         </activity>
 

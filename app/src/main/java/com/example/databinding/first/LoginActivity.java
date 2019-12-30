@@ -30,14 +30,17 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println("Username=" + usernamelogin);
                 String passwordlogin = LoginPojo.loginpassword.get();
                 System.out.println("Password=" + passwordlogin);
-                startActivity(intent);
-                /*if ((usernamelogin == "admin") && (passwordlogin == "admin")) {
-                    startActivity(intent);
+                if ((usernamelogin.equals("admin")) && (passwordlogin.equals("admin"))) {
+
+                    //System.out.println("Hi");
+
+                  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                   startActivity(intent);
 
                 }
-                else{
-                    System.out.println();
-                }*/
+
+
+
             }
         });
     }

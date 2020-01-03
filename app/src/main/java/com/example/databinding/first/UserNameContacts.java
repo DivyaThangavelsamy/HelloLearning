@@ -3,9 +3,9 @@ package com.example.databinding.first;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Contacts {
+public class UserNameContacts {
 
-    public Contacts(ArrayList<String> mContacts) {
+    public lContacts(ArrayList<String> mContacts) {
         this.mContacts = mContacts;
     }
 

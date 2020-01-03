@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,15 +25,14 @@ import com.example.databinding.first.databinding.ActivityMainBinding;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    Bundle bundle=new Bundle();
+    Bundle bundle = new Bundle();
     public Button buttonLaunch;
     Intent intent;
-    public EditText usernameedit,passwordedit,mailidedit;
+    public EditText usernameedit, passwordedit, mailidedit;
     public RadioGroup genderedit;
     public Spinner regionedit;
-    RegistrationForm registrationForm;
-    public String string1,string2,string3,string4,string5;
-
+    RegistrationViewModel registrationForm;
+    public String string1, string2, string3, string4, string5;
 
 
     @Override
@@ -40,37 +41,36 @@ public class RegistrationActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
-       ActivityMainBinding mBinding= DataBindingUtil.setContentView(this, R.layout.activity_main);
-         registrationForm=new RegistrationForm();
+        ActivityMainBinding mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        registrationForm = ViewModelProviders.of(this).get(RegistrationViewModel.class);
         mBinding.setViewModel(registrationForm);
-
 
 
         final Intent intent = new Intent(this, ProfileInfo.class);
 
 
         buttonLaunch = findViewById(R.id.signup);
-        buttonLaunch.setOnClickListener(new View.OnClickListener(){
+        buttonLaunch.setOnClickListener(new View.OnClickListener() {
 
 
             public void onClick(View view) {
 
-                AlertDialog.Builder builder=new AlertDialog.Builder(RegistrationActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegistrationActivity.this);
                 builder.setMessage("Do you want to proceed");
                 builder.setCancelable(false);
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        final String username=registrationForm.userName.get();
-                        final  String mailid=registrationForm.mailid.get();
-                        final String gender=registrationForm.gender.get();
-                        final String region=registrationForm.region.get();
+                        final String username = registrationForm.userName.get();
+                        final String mailid = registrationForm.mailid.get();
+                        final String gender = registrationForm.gender.get();
+                        final String region = registrationForm.region.get();
 
-                        bundle.putString("Name",username);
-                        bundle.putString("Email",mailid);
-                        bundle.putString("Gender",gender);
-                        bundle.putString("Region",region);
+                        bundle.putString("Name", username);
+                        bundle.putString("Email", mailid);
+                        bundle.putString("Gender", gender);
+                        bundle.putString("Region", region);
                         intent.putExtras(bundle);
                         startActivity(intent);
 
@@ -82,32 +82,23 @@ public class RegistrationActivity extends AppCompatActivity {
                         dialogInterface.cancel();
                     }
                 });
-                AlertDialog alertDialog=builder.create();
+                AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
             }
 
         });
 
-        }
+    }
 
-    //static Toast toast;
 
-   @BindingAdapter({"toastMessage"})
-    public static void toastMe(View view,String message)
+    @BindingAdapter({"toastMessage"})
+    public static void toastMe(View view, String message) {
 
-    {
-
-        if(message!=null) {
+        if (message != null) {
             Toast.makeText(view.getContext(), message,
                     Toast.LENGTH_SHORT).show();
-           // Handler handler = new Handler();
-           // handler.postDelayed(new Runnable() {
-             //   @Override
-               // public void run() {
-               //     toast.show();
-               // }
-           // }, 1000);
+
         }
 
     }

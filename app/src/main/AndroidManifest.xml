@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".ProfileInfo"></activity>
-        <activity android:name=".RegistrationForm"></activity>
+        <activity android:name=".RegistrationViewModel"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

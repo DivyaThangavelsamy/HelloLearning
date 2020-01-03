@@ -12,20 +12,20 @@ import com.example.databinding.first.databinding.ActivitySecondBinding;
 
 public class ProfileInfo extends AppCompatActivity {
     private Button goback;
-    public Bundle getbundle=null;
+    public Bundle getbundle = null;
 
-    TextView un,mail,gender,region;
+    TextView un, mail, gender, region;
 
-    String st1,st2,st3,st4,st5;
+    String st1, st2, st3, st4, st5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivitySecondBinding profileInfo= DataBindingUtil.setContentView(this,R.layout.activity_second);
-        RegistrationForm registrationForm=new RegistrationForm();
+        ActivitySecondBinding profileInfo = DataBindingUtil.setContentView(this, R.layout.activity_second);
+        RegistrationViewModel registrationForm = new RegistrationViewModel();
         profileInfo.setViewModel(registrationForm);
 
-        getbundle=this.getIntent().getExtras();
+        getbundle = this.getIntent().getExtras();
 
         registrationForm.usernameprofile.set(getbundle.getString("Name"));
         registrationForm.emailprofile.set(getbundle.getString("Email"));
@@ -52,10 +52,6 @@ public class ProfileInfo extends AppCompatActivity {
 
         st4=getIntent().getExtras().getString("region");
         region.setText(st4);*/
-
-
-
-
 
 
     }

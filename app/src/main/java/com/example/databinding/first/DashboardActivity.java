@@ -1,25 +1,26 @@
 package com.example.databinding.first;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.databinding.DataBindingUtil;
+
 import android.widget.EditText;
 
 import com.example.databinding.first.databinding.DashboardviewActivityBinding;
 
-import java.util.Map;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 
 public class DashboardActivity extends AppCompatActivity {
 
-    Bundle bundle=new Bundle();
-    Button buttonclick,displayclick;
+    Bundle bundle = new Bundle();
+    DashboardViewModel dashboardViewModel;
+    Button buttonclick, displayclick;
 
     EditText typeedit;
     String string1;
@@ -28,38 +29,44 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.dashboardview_activity);
-        DashboardviewActivityBinding dashboardviewActivityBinding=DataBindingUtil.setContentView(this,R.layout.dashboardview_activity);
-        DasboardPojo dasboardPojo=new DasboardPojo();
-        dashboardviewActivityBinding.setDashboardview(dasboardPojo);
 
-        final Intent intent = new Intent(this,RecyclerViewActivity.class);
+        DashboardviewActivityBinding dashboardviewActivityBinding = DataBindingUtil.setContentView(this, R.layout.dashboardview_activity);
+
+        dashboardViewModel = ViewModelProviders.of(this).get(DashboardViewModel.class);
+
+        final SharedPreferenceComponent sharedPreferenceComponent = DaggerSharedPreferenceComponent.builder().sharedPreferenceBuilder(new SharedPreferenceBuilder(this)).build();
+        sharedPreferenceComponent.getSharedPreferenceComponentObject(this);
+        DaggerResponseBuilderComponent.create();
+
+        dashboardviewActivityBinding.setDashboardview(dashboardViewModel);
+
+
+        final Intent intent = new Intent(this, RecyclerViewActivity.class);
         buttonclick = findViewById(R.id.click);
-        displayclick= findViewById(R.id.display);
+        displayclick = findViewById(R.id.display);
 
-        sharedPreferences = getSharedPreferences("ContactName", Context.MODE_PRIVATE); //shared pref (name,mode)
 
         buttonclick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              String NameEdit=DasboardPojo.fullName.get();
+
+                sharedPreferenceComponent.getSharedPreferenceBuilder().addDataToSharedPreference(dashboardViewModel.fullName.get(), dashboardViewModel.fullName.get());
 
 
-                System.out.println("Type:"+NameEdit);
+                String NameEdit = DashboardViewModel.fullName.get();
 
 
-                SharedPreferences.Editor editor = sharedPreferences.edit(); //edit shared pref to put data
+                System.out.println("Type:" + NameEdit);
 
-                editor.putString(NameEdit,NameEdit).commit(); //put data in shared pref
 
             }
         });
-    displayclick.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+        displayclick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            startActivity(intent);
-        }
-    });
+                startActivity(intent);
+            }
+        });
     }
 }

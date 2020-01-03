@@ -15,17 +15,19 @@ import java.util.regex.Pattern;
 
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableField;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 
-public class RegistrationForm {
+public class RegistrationViewModel extends ViewModel {
 
     public final ObservableField<String> userName = new ObservableField<>();
     public final ObservableField<String> mailid = new ObservableField<>();
     public final ObservableField<String> password = new ObservableField<>();
     public final ObservableField<String> gender = new ObservableField<>();
-    public final ObservableField<String> region =new ObservableField<>();
+    public final ObservableField<String> region = new ObservableField<>();
     public final ObservableField<String> phonenumber = new ObservableField<>();
-    public final ObservableField<String> toastMessage=new ObservableField<>();
-    public final ObservableField<Boolean> signUp= new ObservableField<>();
+    public final ObservableField<String> toastMessage = new ObservableField<>();
+    public final ObservableField<Boolean> signUp = new ObservableField<>();
     public final ObservableField<String> usernameprofile = new ObservableField<>();
     public final ObservableField<String> emailprofile = new ObservableField<>();
     public final ObservableField<String> genderprofile = new ObservableField<>();
@@ -42,7 +44,6 @@ public class RegistrationForm {
     boolean IsEnabled;
 
 
-
     private static Pattern EMAIL_PATTERN = Pattern.compile("^[a-z0-9-\\+]+(\\.[a-z0-9-]+)*@"
             + "[a-z0-9-]+(\\.[a-z0-9]+)*(\\.[ a-z]{2,})$");
 
@@ -55,39 +56,37 @@ public class RegistrationForm {
             "$");
 
 
-
-
-public TextWatcher usernameValidation=new TextWatcher() {
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable editable) {
-
-
-        System.out.println(userName.get());
-        int minimumLength = 5;
-
-        if (TextUtils.isEmpty(userName.get())) {
-            System.out.println("Username is Required");
-            toastMessage.set("Username is required");
-
-        } else if (userName.get().length() < 5) {
-            System.out.println("Username must be length of 5");
-            toastMessage.set("Username must be length of 5");
-        } else {
-            userNameIs =true;
+    public TextWatcher usernameValidation = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
         }
-    }
-};
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+
+            System.out.println(userName.get());
+            int minimumLength = 5;
+
+            if (TextUtils.isEmpty(userName.get())) {
+                System.out.println("Username is Required");
+                toastMessage.set("Username is required");
+
+            } else if (userName.get().length() < 5) {
+                System.out.println("Username must be length of 5");
+                toastMessage.set("Username must be length of 5");
+            } else {
+                userNameIs = true;
+
+            }
+        }
+    };
 /*public TextWatcher emailidValidation=new TextWatcher() {
     @Override
     public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -100,64 +99,60 @@ public TextWatcher usernameValidation=new TextWatcher() {
     }*/
 
 
-    public void emailidValidate(View view,String message) {
+    public void emailidValidate(View view, String message) {
 
-        if(userNameIs==true) {
+        if (userNameIs == true) {
             if (TextUtils.isEmpty(mailid.get())) {
 
                 Toast.makeText(view.getContext(), "EmailId is required",
                         Toast.LENGTH_SHORT).show();
-            }
-            else if (!EMAIL_PATTERN.matcher(mailid.get()).matches()) {
+            } else if (!EMAIL_PATTERN.matcher(mailid.get()).matches()) {
                 Toast.makeText(view.getContext(), "EmailId is Invalid",
                         Toast.LENGTH_SHORT).show();
             } else {
                 emailIdIs = true;
 
             }
-        }
-        else{
-               mailid.set("");
-               toastMessage.set("Enter Valid UserName");
-            }
-
-        }
-
-
-
-
-public TextWatcher passwordValidation=new TextWatcher() {
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable editable) {
-        System.out.println(password.get());
-        if (emailIdIs == true) {
-
-            if (TextUtils.isEmpty(password.get())) {
-                System.out.println("Password is Required");
-                toastMessage.set("Password is required");
-            }
-            if (!PASSWORD_PATTERN.matcher(password.get()).matches()) {
-                toastMessage.set("Not a Valid Password");
-            } else
-                passwordIs = true;
         } else {
-            password.set("");
-            toastMessage.set("Enter a Valid Email Id");
+            mailid.set("");
+            toastMessage.set("Enter Valid UserName");
         }
 
     }
-};
+
+
+    public TextWatcher passwordValidation = new TextWatcher() {
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            System.out.println(password.get());
+            if (emailIdIs == true) {
+
+                if (TextUtils.isEmpty(password.get())) {
+                    System.out.println("Password is Required");
+                    toastMessage.set("Password is required");
+                }
+                if (!PASSWORD_PATTERN.matcher(password.get()).matches()) {
+                    toastMessage.set("Not a Valid Password");
+                } else
+                    passwordIs = true;
+            } else {
+                password.set("");
+                toastMessage.set("Enter a Valid Email Id");
+            }
+
+        }
+    };
 
 
     public void onCheckedChanged(boolean checked) {
@@ -222,16 +217,14 @@ public TextWatcher passwordValidation=new TextWatcher() {
     };
 
 
-
-
-        public void IsEnabled() {
-            if (phonenumberIs == true) {
-                signUp.set(true);
-            } else {
-                signUp.set(false);
-            }
+    public void IsEnabled() {
+        if (phonenumberIs == true) {
+            signUp.set(true);
+        } else {
+            signUp.set(false);
         }
     }
+}
 
 
 

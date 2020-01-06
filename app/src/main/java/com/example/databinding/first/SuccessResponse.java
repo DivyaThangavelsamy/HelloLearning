@@ -8,6 +8,6 @@ public class SuccessResponse {
     }
 
     public String getSuccessMessage() {
-        return "Success";l
+        return "Success";
     }
 }

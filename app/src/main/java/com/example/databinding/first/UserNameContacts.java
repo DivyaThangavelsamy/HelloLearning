@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class UserNameContacts {
 
-    public lContacts(ArrayList<String> mContacts) {
+    public UserNameContacts(ArrayList<String> mContacts) {
         this.mContacts = mContacts;
     }
 

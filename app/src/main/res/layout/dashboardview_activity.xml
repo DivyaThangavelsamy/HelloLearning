@@ -67,7 +67,7 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline8"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            ltools:layout_editor_absoluteY="34dp" />
+            tools:layout_editor_absoluteY="34dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

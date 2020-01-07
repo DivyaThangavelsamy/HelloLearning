@@ -37,10 +37,7 @@ public class DashboardActivity extends AppCompatActivity {
         final SharedPreferenceComponent sharedPreferenceComponent = DaggerSharedPreferenceComponent.builder().sharedPreferenceBuilder(new SharedPreferenceBuilder(this)).build();
         sharedPreferenceComponent.getSharedPreferenceComponentObject(this);
         DaggerResponseBuilderComponent.create();
-
         dashboardviewActivityBinding.setDashboardview(dashboardViewModel);
-
-
         final Intent intent = new Intent(this, RecyclerViewActivity.class);
         buttonclick = findViewById(R.id.click);
         displayclick = findViewById(R.id.display);
@@ -54,9 +51,6 @@ public class DashboardActivity extends AppCompatActivity {
 
 
                 String NameEdit = DashboardViewModel.fullName.get();
-
-
-                System.out.println("Type:" + NameEdit);
 
 
             }
